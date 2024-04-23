@@ -43,4 +43,57 @@ void main(List<String> arguments) {
     name4.length;
   }
   name6?.length; //단축 문법. null인지 아닌지 확인 후 진행
+
+  // string interpolation
+  var name = 'abc';
+  var age = 10;
+  var greeting = 'my name is $name, I am ${age + 2}';
+  print(greeting);
+
+  /**
+   * data types
+   */
+  String str = "str";
+  bool boo = true;
+  int num = 1;
+  double db = 1.1;
+
+  //List
+  List<int> numbers2 = [
+    1,
+    2,
+    3,
+    4,
+    5,
+  ];
+
+  var givemefive = true;
+  var numbers = [
+    1,
+    2,
+    3,
+    4,
+    if (givemefive) 5, //collection if
+  ];
+  numbers2.add(6);
+  numbers2.last;
+
+  var old_num = [1, 2, 3];
+  var new_num = [
+    4,
+    5,
+    6,
+    for (var num in old_num) "!! $num", //collection for
+  ];
+  print(new_num);
+
+  //Map
+  Map<String, Object> player = {
+    'name': 'abc',
+    'xp': 19.99,
+    'skill': false,
+  };
+
+  //Set. 중복 불가
+  Set<int> set = {1, 2, 3};
 }
