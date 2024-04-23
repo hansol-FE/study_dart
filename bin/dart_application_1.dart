@@ -1,3 +1,5 @@
+import 'dart:mirrors';
+
 import 'package:dart_application_1/dart_application_1.dart'
     as dart_application_1;
 
@@ -96,4 +98,43 @@ void main(List<String> arguments) {
 
   //Set. 중복 불가
   Set<int> set = {1, 2, 3};
+
+  /**
+   * functions
+   */
+
+  //named prameters
+  String sayHello({
+    required String name,
+    int age = 1,
+    String contry = '',
+  }) {
+    return "$name $age $contry";
+  }
+
+  sayHello(age: 12, name: 'abc', contry: 'abc');
+
+  //optional positional parameters
+  String sayHello2(String name, int age, [String? contry = '']) {
+    return "$name $age $contry";
+  }
+
+  sayHello2('abc', 1);
+
+  //qq operator. null이면 ~
+  String capitaizeName(String? name) => name?.toUpperCase() ?? 'ABC';
+  capitaizeName('abc');
+  capitaizeName(null);
+
+  String? name7;
+  name7 ??= 'ABC';
+
+  //typedef. 자료형 alias 만들기
+
+  ListOfInts reverse(ListOfInts list) {
+    var reversedList = list.reversed;
+    return reversedList.toList();
+  }
 }
+
+typedef ListOfInts = List<int>;
