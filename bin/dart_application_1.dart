@@ -135,6 +135,108 @@ void main(List<String> arguments) {
     var reversedList = list.reversed;
     return reversedList.toList();
   }
+
+/**
+   * classes
+   */
+  // 인스턴스 생성. new 키워드 붙여도되고 안붙여도됨
+  var playerObj = Player();
+  playerObj.xp = 2000;
+  print(playerObj.name);
+  print(playerObj.xp);
+  playerObj.sayHello();
+
+  // constructor 이용한 인스턴스 생성
+  var player2Obj1 = Player2('one', 1000);
+  var player2Obj2 = Player2('two', 1500);
+
+  // named constructor parameters를 이용한 인스턴스 생성
+  var palyer3Obj = Player3(
+    name: 'abc',
+    xp: 1000,
+    team: 'dfdf',
+    age: 11,
+  );
+
+  //named constructor
+  var palyer4Obj_blue = Player4.createBluePlayer(
+    name: 'blue',
+    age: 11,
+  );
+
+  var palyer4Obj_red = Player4.createRedPlayer('red', 11);
 }
 
 typedef ListOfInts = List<int>;
+
+class Player {
+  final String name = 'abc';
+  int xp = 1500;
+
+  void sayHello() {
+    print('hi i am $name'); //같은 이름의 변수가 있지않는 이상 메서드안에서 this.name의 사용을 권장하지 않음.
+    // var name = '2323';
+    // print('hi i am ${this.name}');
+  }
+}
+
+class Player2 {
+  // 1번 방법
+  // late final String name;
+  // late int xp;
+
+  //constructor
+  // Player2(String name, int xp) {
+  //   this.name = name;
+  //   this.xp = xp;
+  // }
+
+  // 2번 방법
+  final String name;
+  int xp;
+
+  Player2(this.name, this.xp);
+}
+
+class Player3 {
+  final String name;
+  int xp;
+  String team;
+  int age;
+
+  // named constructor parameters
+  Player3({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
+}
+
+class Player4 {
+  final String name;
+  int xp, age;
+  String team;
+
+  Player4({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
+
+  // named constructor.  콜론 키워드를 사용해서 클래스로 만든 객체 초기화해줌.
+  Player4.createBluePlayer({
+    required String name,
+    required int age,
+  })  : this.name = name,
+        this.age = age,
+        this.team = 'blue',
+        this.xp = 0;
+
+  Player4.createRedPlayer(String name, int age)
+      : this.name = name,
+        this.age = age,
+        this.team = 'red',
+        this.xp = 0;
+}
