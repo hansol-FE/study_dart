@@ -338,3 +338,19 @@ class Player7 extends Human2 {
     print('and I play for $team');
   }
 }
+
+mixin class Strong {
+  final double strengthLevel = 1500.99;
+}
+
+mixin class QuickRunner {
+  void runQuick() {
+    print('run~!');
+  }
+}
+
+class Player8 with Strong, QuickRunner {
+  final Team team;
+
+  Player8({required this.team});
+}
