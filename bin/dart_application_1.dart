@@ -287,3 +287,27 @@ class Player5 {
     required this.age,
   });
 }
+
+// 추상화 클래스
+abstract class Human {
+  void walk();
+}
+
+class Player6 extends Human {
+  final String name;
+  XpLevel xp;
+  Team team;
+  int age;
+
+  // named constructor parameters
+  Player6({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
+
+  void walk() {
+    print('i am walking');
+  }
+}
