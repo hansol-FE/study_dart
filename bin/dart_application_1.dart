@@ -185,6 +185,14 @@ void main(List<String> arguments) {
   var player3Obj_4 = player3Obj_3
     ..xp = 3000
     ..age = 13;
+
+  //enum을 사용한 안전한 객체 생성
+  var player5Obj = Player5(
+    name: 'abc',
+    xp: XpLevel.beginner,
+    team: Team.blue,
+    age: 11,
+  );
 }
 
 typedef ListOfInts = List<int>;
@@ -259,4 +267,23 @@ class Player4 {
         this.age = age,
         this.team = 'red',
         this.xp = 0;
+}
+
+enum Team { red, blue }
+
+enum XpLevel { beginner, medium, pro }
+
+class Player5 {
+  final String name;
+  XpLevel xp;
+  Team team;
+  int age;
+
+  // named constructor parameters
+  Player5({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
 }
