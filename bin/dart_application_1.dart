@@ -165,6 +165,26 @@ void main(List<String> arguments) {
   );
 
   var palyer4Obj_red = Player4.createRedPlayer('red', 11);
+
+  var player3Obj_2 = Player3(
+    name: 'abc',
+    xp: 1000,
+    team: 'dfdf',
+    age: 11,
+  );
+
+  //수정하려면 원래 다음과같이 작성
+  player3Obj_2.xp = 2000;
+  player3Obj_2.age = 12;
+
+  // Cascade operator
+  var player3Obj_3 = Player3(name: 'abc', xp: 1000, team: 'dfdf', age: 11)
+    ..xp = 2000
+    ..age = 12;
+
+  var player3Obj_4 = player3Obj_3
+    ..xp = 3000
+    ..age = 13;
 }
 
 typedef ListOfInts = List<int>;
