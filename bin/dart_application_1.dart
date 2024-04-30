@@ -193,6 +193,8 @@ void main(List<String> arguments) {
     team: Team.blue,
     age: 11,
   );
+
+  var palyer7Obj = Player7(team: Team.blue, name: 'abc');
 }
 
 typedef ListOfInts = List<int>;
@@ -309,5 +311,30 @@ class Player6 extends Human {
 
   void walk() {
     print('i am walking');
+  }
+}
+
+class Human2 {
+  final String name;
+
+  Human2(this.name);
+
+  void sayHello() {
+    print('hi i am $name');
+  }
+}
+
+class Player7 extends Human2 {
+  final Team team;
+
+  Player7({
+    required this.team,
+    required String name,
+  }) : super(name);
+
+  @override
+  void sayHello() {
+    super.sayHello();
+    print('and I play for $team');
   }
 }
